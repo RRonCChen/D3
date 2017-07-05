@@ -1,7 +1,7 @@
-div.bar{
+rect.bar{
     display: inline-block;
     width: 20px;
     background-color: black;
-    margin-right: 2px;
+    margin-right: 10px;
 }
 
