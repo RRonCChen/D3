@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="2ba760aa-dd53-4116-a7c4-b19717cdd7d4" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/useSVG.html" afterPath="$PROJECT_DIR$/useSVG.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -24,8 +23,8 @@
       <file leaf-file-name="useSVG.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/useSVG.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="606">
-              <caret line="32" column="28" lean-forward="true" selection-start-line="32" selection-start-column="28" selection-end-line="32" selection-end-column="28" />
+            <state relative-caret-position="796">
+              <caret line="42" column="7" lean-forward="true" selection-start-line="42" selection-start-column="7" selection-end-line="42" selection-end-column="7" />
               <folding />
             </state>
           </provider>
@@ -237,7 +236,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1499166873294</updated>
-      <workItem from="1499166874895" duration="31493000" />
+      <workItem from="1499166874895" duration="31566000" />
     </task>
     <task id="LOCAL-00001" summary="用SVG的rect 取代 div長條圖。">
       <created>1499246077091</created>
@@ -246,11 +245,18 @@
       <option name="project" value="LOCAL" />
       <updated>1499246077091</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="增加axis">
+      <created>1499665071353</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1499665071353</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="31493000" />
+    <option name="totallyTimeSpent" value="31566000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -291,7 +297,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="用SVG的rect 取代 div長條圖。" />
-    <option name="LAST_COMMIT_MESSAGE" value="用SVG的rect 取代 div長條圖。" />
+    <MESSAGE value="增加axis" />
+    <option name="LAST_COMMIT_MESSAGE" value="增加axis" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -332,8 +339,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/useSVG.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="606">
-          <caret line="32" column="28" lean-forward="true" selection-start-line="32" selection-start-column="28" selection-end-line="32" selection-end-column="28" />
+        <state relative-caret-position="796">
+          <caret line="42" column="7" lean-forward="true" selection-start-line="42" selection-start-column="7" selection-end-line="42" selection-end-column="7" />
           <folding />
         </state>
       </provider>
