@@ -2,26 +2,41 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>use svg draw</title>.
+    <title>use svg draw</title>
     <script type="text/javascript" src="d3/d3.js"></script>
     <link rel="stylesheet" type="text/css" href="testCSS.css">
 </head>
 <body>
     <script type= text/javascript>
-        var data = [5,10,15,20,25,13,22,13];
-        svg =d3.select("body").append("svg").attr("height","500").attr("width","500");
-        svg.selectAll("rect").data(data).enter().append("rect").attr("class","bar")
-            .attr("height", function(d) {
-            var h = (d*10);
-            return h + "px";
-        }).attr("x",function(d,i){return 21*i;})
-            .attr("y",function(d){return 500-d*10})
-            .attr("fill",function(d){return "rgb("+(d*10)+","+(d*5)+","+(d*10)+")";});
 
-        svg.selectAll("text").data(data).enter().append("text")
-            .attr("x",function(d,i){return 21*i;})
-            .attr("y",function(d){return 500-(d*10)+14;})
+        var data = [5,10,15,20,25,13,22,13];
+        mysvg =d3.select("body").append("svg").attr("height","500").attr("width","500");
+
+        //Bar
+        mysvg.selectAll("rect").data(data).enter().append("rect").attr("class","bar")
+            .attr("height", function(d) {
+            var h = (d*20);
+            return h + "px";
+        }).attr("x",function(d,i){return 21*i+20;})
+            .attr("y",function(d){return 500-d*20})
+            .attr("fill",function(d){return "rgb("+(d)+","+(d*5)+","+(d*10)+")";});
+
+        //Bar 上的文字
+        mysvg.selectAll("text").data(data).enter().append("text")
+            .attr("x",function(d,i){return 21*i+20;})
+            .attr("y",function(d){return 500-d*20+14;})
+            .attr("fill","#fff")
             .text(function(d){return d;});
+
+        //比例尺
+        var x = d3.scaleLinear()
+            .domain([25, 0])      //輸入值
+            .range([0, 500]);     //輸出值
+
+         //Axis translate(X,Y)
+         var xAxis =d3.axisRight(x);
+         mysvg.append("g").attr("transform", "translate(0,0)").call(xAxis);
+
     </script>
 
 </body>
