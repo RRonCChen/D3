@@ -2,42 +2,104 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>use svg draw</title>
+    <title>Stephen Curry 3pt%</title>
     <script type="text/javascript" src="d3/d3.js"></script>
     <link rel="stylesheet" type="text/css" href="testCSS.css">
 </head>
 <body>
-    <script type= text/javascript>
+<script type=text/javascript>
 
-        var data = [5,10,15,20,25,13,22,13];
-        mysvg =d3.select("body").append("svg").attr("height","500").attr("width","500");
+    var data = [0.437, 0.442, 0.455, 0.453, 0.424, 0.443, 0.454];
+    var date = ["2009–10", "2010–11", "2011–12", "2012–13", "2013–14", "2014–15" ,"2015–16"];
+    mysvg = d3.select("body").append("svg").attr("height", "600").attr("width", "500");
 
-        //Bar
-        mysvg.selectAll("rect").data(data).enter().append("rect").attr("class","bar")
-            .attr("height", function(d) {
-            var h = (d*20);
+    //Bar
+    mysvg.selectAll("rect").data(data).enter().append("rect").attr("class", "bar")
+        .attr("height", function (d) {
+            var h = (d * 500);
             return h + "px";
-        }).attr("x",function(d,i){return 21*i+20;})
-            .attr("y",function(d){return 500-d*20})
-            .attr("fill",function(d){return "rgb("+(d)+","+(d*5)+","+(d*10)+")";});
+        }).attr("x", function (d, i) {
+        return 51 * i + 50;
+    })
+        .attr("y", function (d) {
+            return 500 - d * 500
+        })
+        .attr("fill", function (d) {
+            return "rgb(0,255,0)";
+        })
+        .on("click", function (d) {
+            console.log(d)
+        })
+        .on("mouseover", function (d, i) {
+            d3.select(this).attr("fill", "orange")
+            //動態新增文字在bar上
+            var xPosition = parseFloat(d3.select(this).attr("x")) + 25;
+            var yPosition = parseFloat(d3.select(this).attr("y")) + 14;
+            mysvg.append("text")
+                .attr("id", "tooltip")
+                .attr("x", xPosition)
+                .attr("y", yPosition)
+                .attr("text-anchor", "middle")
+                .attr("font-family", "sans-serif")
+                .attr("font-size", "11px")
+                .attr("font-weight", "bold")
+                .attr("fill", "white")
+                .text(d);
 
-        //Bar 上的文字
-        mysvg.selectAll("text").data(data).enter().append("text")
-            .attr("x",function(d,i){return 21*i+20;})
-            .attr("y",function(d){return 500-d*20+14;})
-            .attr("fill","#fff")
-            .text(function(d){return d;});
+            d3.select("#tip")
+                .style("left", xPosition + "px")
+                .style("top", (yPosition / 2) + "px")
+                .select("#value")
+                .text(d);
 
-        //比例尺
-        var x = d3.scaleLinear()
-            .domain([25, 0])      //輸入值
-            .range([0, 500]);     //輸出值
+            d3.select("#tip")
+                .select("#date")
+                .text(date[i]);
 
-         //Axis translate(X,Y)
-         var xAxis =d3.axisRight(x);
-         mysvg.append("g").attr("transform", "translate(0,0)").call(xAxis);
+            d3.select("#tip").classed("hidden", false);
+        })
+        .on("mouseout", function (d) {
+            d3.select(this)
+                .transition()
+                .duration(250)
+                .attr("fill", "rgb(0, 125,0)");
+            //刪除bar上的文字
+            d3.select("#tooltip").remove();
 
-    </script>
+            d3.select("#tip").classed("hidden", true);
+        }).append("title")
+        .text(function (d) {
+            return d
+        });
+
+    //Bar 上的文字
+    //    mysvg.selectAll("text").data(data).enter().append("text")
+    //        .attr("x", function (d, i) {
+    //            return 21 * i + 20;
+    //        })
+    //        .attr("y", function (d) {
+    //            return 500 - d * 20 + 14;
+    //        })
+    //        .attr("fill", "#fff")
+    //        .text(function (d) {
+    //            return d;
+    //        });
+
+    //比例尺
+    var x = d3.scaleLinear()
+        .domain([1.0, 0.0])      //輸入值
+        .range([0, 500]);     //輸出值
+
+    //Axis translate(X,Y)
+    var xAxis = d3.axisRight(x);
+    mysvg.append("g").attr("transform", "translate(0,0)").call(xAxis);
+
+</script>
+
+<div id="tip" class="hidden">
+    <p><strong> <span id="date">2009-10</span> 3pt%</strong></p>
+    <p><span id="value">100</span>%</p>
+</div>
 
 </body>
 </html>
